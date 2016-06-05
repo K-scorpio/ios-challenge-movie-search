@@ -17,10 +17,6 @@ class MovieTableViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                self.tableView.reloadData()
-            })
-        }
-        
         tableView.reloadData()
     }
     
