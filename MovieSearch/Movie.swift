@@ -1,7 +1,6 @@
 //
 //  movie.swift
-//  MovieSearch
-//
+//  MovieSearch  //
 //  Created by Kevin Hartley on 6/3/16.
 //  Copyright © 2016 DevMountain. All rights reserved.
 //
@@ -16,7 +15,7 @@ class Movie {
     private let kImageString = "poster_path"
     
     let title: String
-    let rating: Float
+    let  rating: Float
     let overview: String
     let imageString: String
     

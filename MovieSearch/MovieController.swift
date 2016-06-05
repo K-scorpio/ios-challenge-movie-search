@@ -10,19 +10,22 @@ import Foundation
 
 class MovieController {
 
-    static let baseUrl = NSURL(string: "http://api.themoviedb.org/3/search/movie?api_key=f83783c7c1e09d03fe09770bc9c4bf57&query=/")
+    static let baseUrl = NSURL(string: "http://api.themoviedb.org/3/search/movie?")
+    static let apiKeyString = "f83783c7c1e09d03fe09770bc9c4bf57"
     
-    var myMovies: [Movie] = []
+//    var myMovies: [Movie] = []
 
-    static func getMovies(completion: (movies: [Movie]) -> Void) {
+    static func getMovies(movieName: String, completion: (movies: [Movie]) -> Void) {
         guard let unwrappedUrl = baseUrl else {
             fatalError("URL not unwrapped")
         }
-        NetworkController.performRequestForURL(unwrappedUrl, httpMethod: .Get) { (data, error) in
+        
+        let urlParameters = ["api_key=" + apiKeyString + "&query=": "\(movieName)"]
+        NetworkController.performRequestForURL(unwrappedUrl, httpMethod: .Get, urlParameters: urlParameters) { (data, error) in
             guard let data = data,
                 jsonAnyObject = try? NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments),
                 jsonDictionary = jsonAnyObject as? [String: AnyObject],
-                movieDictionary = jsonDictionary["movies"] as? [[String: AnyObject]] else {
+                movieDictionary = jsonDictionary["results"] as? [[String: AnyObject]] else {
                         completion(movies: [])
                         return
             }

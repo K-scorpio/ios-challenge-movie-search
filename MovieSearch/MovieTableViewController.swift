@@ -10,7 +10,13 @@ import UIKit
 
 class MovieTableViewController: UITableViewController, UISearchBarDelegate {
     
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var movieRating: UILabel!
+    @IBOutlet weak var movieOverview: UITextView!
+    
+    
     var movieController = MovieController()
+    var movieSearchResult = [Movie]()
 
     @IBOutlet var movieTableView: UITableView!
     
@@ -52,7 +58,7 @@ class MovieTableViewController: UITableViewController, UISearchBarDelegate {
     
     
         var searchActive : Bool = false
-    var data = MovieController.getMovies((movies: [Movie]))
+        var data = MovieController.baseUrl[]
         var filtered:[String] = []
     
         func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
@@ -95,15 +101,16 @@ class MovieTableViewController: UITableViewController, UISearchBarDelegate {
         }
     
         override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-            guard let cell = tableView.dequeueReusableCellWithIdentifier("Cell") as? MovieTableViewCell else {
-                    return UITableViewCell()
-            }
+            let cell = tableView.dequeueReusableCellWithIdentifier("movieCell")
+            let movie = movieSearchResult[indexPath.row]
+            
+            
             if(searchActive){
-                cell.textLabel?.text = filtered[indexPath.row]
+                cell?.textLabel?.text = filtered[indexPath.row]
             } else {
-                cell.textLabel?.text = data[indexPath.row];
+                cell?.textLabel?.text = data[indexPath.row];
             }
             
-            return cell;
+            return (cell ?? nil)!;
         }
     }

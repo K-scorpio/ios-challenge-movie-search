@@ -31,7 +31,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="347" id="8Ne-fa-9vv" customClass="MovieTableViewCell" customModule="MovieSearch" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="347" id="8Ne-fa-9vv">
                                 <rect key="frame" x="0.0" y="136" width="600" height="347"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Ne-fa-9vv" id="HQu-t9-SSM">
@@ -85,11 +85,6 @@
                                         <constraint firstItem="smM-4Y-w1H" firstAttribute="top" secondItem="HQu-t9-SSM" secondAttribute="topMargin" id="yiE-fq-bN7"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="movieOverview" destination="o5q-Wy-q8h" id="qj9-Cx-401"/>
-                                    <outlet property="movieRating" destination="5VF-WW-JEq" id="MJo-ql-0Zl"/>
-                                    <outlet property="movieTitle" destination="smM-4Y-w1H" id="PiL-tc-fEb"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -99,7 +94,10 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="4Ke-P7-ivb"/>
                     <connections>
+                        <outlet property="movieOverview" destination="o5q-Wy-q8h" id="pjC-lb-Nay"/>
+                        <outlet property="movieRating" destination="5VF-WW-JEq" id="gJX-ec-HUG"/>
                         <outlet property="movieTableView" destination="RSg-Zx-6ry" id="G6R-Xs-v67"/>
+                        <outlet property="movieTitle" destination="smM-4Y-w1H" id="Z31-l3-alQ"/>
                         <outlet property="searchBar" destination="9JF-XQ-GDc" id="pJ3-Wa-5ev"/>
                         <outlet property="searchDisplayController" destination="iq9-0k-N6T" id="8dd-hT-777"/>
                         <outlet property="tableView" destination="RSg-Zx-6ry" id="3cI-iO-jJI"/>
@@ -115,7 +113,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="941" y="471"/>
+            <point key="canvasLocation" x="1008" y="471"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sKF-NL-kfI">
