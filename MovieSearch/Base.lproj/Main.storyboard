@@ -21,6 +21,9 @@
                                 <searchBar contentMode="redraw" placeholder="Search movies" translatesAutoresizingMaskIntoConstraints="NO" id="9JF-XQ-GDc">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="m2V-WH-4aU" id="Pf0-b9-n01"/>
+                                    </connections>
                                 </searchBar>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -101,7 +104,6 @@
                     <navigationItem key="navigationItem" id="4Ke-P7-ivb"/>
                     <connections>
                         <outlet property="movieTableView" destination="RSg-Zx-6ry" id="G6R-Xs-v67"/>
-                        <outlet property="searchBar" destination="9JF-XQ-GDc" id="pJ3-Wa-5ev"/>
                         <outlet property="searchDisplayController" destination="iq9-0k-N6T" id="8dd-hT-777"/>
                         <outlet property="tableView" destination="RSg-Zx-6ry" id="3cI-iO-jJI"/>
                     </connections>
@@ -116,7 +118,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1008" y="471"/>
+            <point key="canvasLocation" x="1038" y="471"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sKF-NL-kfI">
