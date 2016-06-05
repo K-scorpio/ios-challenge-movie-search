@@ -10,6 +10,14 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var movieTitle: UILabel!
+    
+    @IBOutlet weak var movieRating: UILabel!
+    
+    @IBOutlet weak var movieOverview: UITextView!
+    
+    @IBOutlet weak var moviePoster: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

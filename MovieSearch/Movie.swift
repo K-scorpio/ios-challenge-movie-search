@@ -15,13 +15,13 @@ class Movie {
     private let kImageString = "poster_path"
     
     let title: String
-    let  rating: Float
+    let rating: String
     let overview: String
     let imageString: String
     
     init?(dictionary: [String: AnyObject]) {
         guard let title = dictionary[kTitle] as? String,
-            rating = dictionary[kRating] as? Float,
+            rating = dictionary[kRating] as? String,
             overview = dictionary[kOverview] as? String,
             imageString = dictionary[kImageString] as? String else {
                 return nil

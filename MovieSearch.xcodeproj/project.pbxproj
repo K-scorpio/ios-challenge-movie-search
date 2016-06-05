@@ -16,6 +16,7 @@
 		E2177A5F1D02193200E41116 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2177A5E1D02193200E41116 /* Movie.swift */; };
 		E2177A611D02194700E41116 /* MovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2177A601D02194700E41116 /* MovieController.swift */; };
 		E2177A641D021FB600E41116 /* MovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2177A631D021FB600E41116 /* MovieTableViewController.swift */; };
+		E2A202181D03DE3D00A1AFBF /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A202171D03DE3D00A1AFBF /* MovieTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		E2177A5E1D02193200E41116 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		E2177A601D02194700E41116 /* MovieController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieController.swift; sourceTree = "<group>"; };
 		E2177A631D021FB600E41116 /* MovieTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewController.swift; sourceTree = "<group>"; };
+		E2A202171D03DE3D00A1AFBF /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				E2177A631D021FB600E41116 /* MovieTableViewController.swift */,
+				E2A202171D03DE3D00A1AFBF /* MovieTableViewCell.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			files = (
 				E2177A591D0217B100E41116 /* NetworkController.swift in Sources */,
 				E2177A611D02194700E41116 /* MovieController.swift in Sources */,
+				E2A202181D03DE3D00A1AFBF /* MovieTableViewCell.swift in Sources */,
 				E2177A641D021FB600E41116 /* MovieTableViewController.swift in Sources */,
 				1A4A23411CCAA554003A4350 /* AppDelegate.swift in Sources */,
 				E2177A5F1D02193200E41116 /* Movie.swift in Sources */,
