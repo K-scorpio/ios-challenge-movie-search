@@ -20,37 +20,38 @@ class MovieController {
             fatalError("URL not unwrapped")
         }
         
-//        let urlParameters = ["api_key=\(apiKeyString)&query=": "\(movieName)"]
+        //        let urlParameters = ["api_key=\(apiKeyString)&query=": "\(movieName)"]
         let urlParameters = ["api_key": apiKeyString, "query": movieName]
         
-                NetworkController.performRequestForURL(unwrappedUrl, httpMethod: .Get, urlParameters: urlParameters, body: nil) { (data, error) in
-                    guard let unwrappedData = data,
-                        jsonAnyObject = try? NSJSONSerialization.JSONObjectWithData(unwrappedData, options: .AllowFragments),
-                        jsonDictionary = jsonAnyObject as? [String: AnyObject],
-                        movieDictionary = jsonDictionary["results"] as? [[String: AnyObject]] else {
-                                completion(movies: [])
-                            print("nada")
-                                return
-                    }
-                    let moviesArray = movieDictionary.flatMap({Movie(dictionary: $0)})
-                    if let movie = Movie(dictionary: jsonDictionary) {
+        NetworkController.performRequestForURL(unwrappedUrl, httpMethod: .Get, urlParameters: urlParameters, body: nil) { (data, error) in
+            guard let unwrappedData = data,
+                jsonAnyObject = try? NSJSONSerialization.JSONObjectWithData(unwrappedData, options: .AllowFragments),
+                jsonDictionary = jsonAnyObject as? [String: AnyObject],
+                movieDictionary = jsonDictionary["results"] as? [[String: AnyObject]] else {
+                    completion(movies: [])
+                    print("nada")
+                    return
+            }
+            let moviesArray = movieDictionary.flatMap({Movie(dictionary: $0)})
+            if let movie = Movie(dictionary: jsonDictionary) {
+                dispatch_sync(dispatch_get_main_queue()) {
                     myMovies.append(movie)
-                    dispatch_get_main_queue()
-                    }
-                    print("movies: \(myMovies)")
-                    completion(movies: moviesArray)
                 }
             }
+            print("movies: \(myMovies)")
+            completion(movies: moviesArray)
         }
+    }
+}
 
-        //["api_key=" + apiKeyString + "&query=": "\(movieName)"]
-        
+//["api_key=" + apiKeyString + "&query=": "\(movieName)"]
+
 //        NetworkController.performRequestForURL(unwrappedUrl, httpMethod: .Get, urlParameters: urlParameters, body: nil) { (data, error) in
 //            if let data = data,
 //                let jsonAnyObject = try? NSJSONSerialization.JSONObjectWithData(data, options: []),
 //                let jsonDictionary = jsonAnyObject as? [String: AnyObject],
 //                let resultsArray = jsonDictionary["results"] as? [[String: AnyObject]] {
-//                
+//
 //                var movies = [Movie]()
 //                for resultDictionary in resultsArray {
 //                    if let movie = Movie(dictionary: resultDictionary) {

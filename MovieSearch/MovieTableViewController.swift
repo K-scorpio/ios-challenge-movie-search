@@ -37,10 +37,14 @@ class MovieTableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCellWithIdentifier("movieCell") as? MovieTableViewCell else {
             return UITableViewCell()
         }
-        let movie = movieSearchResults[indexPath.row]
+        
+        dispatch_sync(dispatch_get_main_queue()) {
+            
+        let movie = self.movieSearchResults[indexPath.row]
 
         cell.movieTitle.text = movie.title
         let f = movie.rating
@@ -53,6 +57,7 @@ class MovieTableViewController: UITableViewController, UISearchBarDelegate {
         ImageController.imageForUrl(movie.imageString, completion: { (image) in
             cell.moviePoster.image
         })
+        }
 
 //cell.moviePoster.image =
         
